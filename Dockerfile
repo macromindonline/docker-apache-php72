@@ -3,7 +3,7 @@ MAINTAINER MACROMIND Online <idc@macromind.online>
 LABEL description="MACROMIND Online Dev - Ubuntu 18 + Apache2 + PHP 7.2"
 
 COPY sources.list /etc/apt/
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get update --fix-missing && apt-get -y install git curl apache2 php php7.2-mysql php7.2-json php7.2-imap php7.2-zip php7.2-gd php7.2-xml php7.2-mbstring libapache2-mod-php7.2 php7.2-sqlite3 php7.2-intl && ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && dpkg-reconfigure --frontend noninteractive tzdata && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get update --fix-missing && apt-get -y install git curl apache2 php php7.2-mysql php7.2-curl php7.2-intl php7.2-json php7.2-imap php7.2-zip php7.2-gd php7.2-xml php7.2-mbstring libapache2-mod-php7.2 php7.2-sqlite3 php7.2-intl && ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && dpkg-reconfigure --frontend noninteractive tzdata && apt-get clean && rm -rf /var/lib/apt/lists/*
 #RUN /usr/sbin/a2dismod 'mpm_*' && /usr/sbin/a2enmod mpm_prefork
 RUN /usr/sbin/a2enmod rewrite
 RUN chown www-data:www-data /usr/sbin/apachectl && chown www-data:www-data /var/www/html/
