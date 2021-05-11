@@ -3,7 +3,6 @@ MAINTAINER MACROMIND Online <idc@macromind.online>
 LABEL description="MACROMIND Online Dev - Ubuntu 18 + Apache2 + PHP 7.2"
 
 ENV DEBIAN_FRONTEND=noninteractive
-COPY sources.list /etc/apt/
 
 RUN apt-get update --fix-missing
 RUN apt-get -y install git curl apache2 php php7.2-mysql php7.2-curl php7.2-intl php7.2-json php7.2-imap php7.2-zip php7.2-gd php7.2-xml php7.2-mbstring libapache2-mod-php7.2 php7.2-sqlite3 php7.2-intl php7.2-mongodb php-pear php7.2-dev unzip
