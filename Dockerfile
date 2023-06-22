@@ -14,11 +14,12 @@ RUN /usr/sbin/a2enmod rewrite
 RUN chown www-data:www-data /usr/sbin/apachectl && chown www-data:www-data /var/www/html/
 RUN /usr/sbin/a2ensite default-ssl
 RUN /usr/sbin/a2enmod ssl
-RUN /usr/bin/curl -sS https://getcomposer.org/installer |/usr/bin/php
+RUN /usr/bin/curl -sS https://getcomposer.org/installer | /usr/bin/php
 RUN /bin/mv composer.phar /usr/local/bin/composer
 RUN chown www-data:www-data /usr/sbin/apachectl && rm -rf /var/www/html
 
 COPY apache2-foreground /usr/local/bin/
+COPY php.ini /etc/php/7.2/apache2/
 
 ENV APACHE_LOCK_DIR "/var/lock"
 ENV APACHE_RUN_DIR "/var/run/apache2"
